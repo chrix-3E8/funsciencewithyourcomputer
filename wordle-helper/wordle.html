@@ -1,13 +1,17 @@
 <html>
+    <title>Wordle Helper</title>
 <body>
+    <div>Yet another simple helper, absolutely sub-optimal, for the <a href="https://www.powerlanguage.co.uk/wordle/">wordle game</a></div>
+    <br>
     <div>Ordered letters (* for any)</div>
-    <input type="text" id="ordered">*****</input>
+    <input type="text" id="ordered" value="*****"></input>
     <div>Unordered letters</div>
     <input type="text" id="unordered"></input>
     <div>Excluded letters</div>
     <input type="text" id="excluded"></input>
     <button onclick="search()">Go</button>
     <div id="result"></div>
+    <img src="./wordle%20assistant.png"/>
 </body>
 <script>
     var orderedElt = document.getElementById("ordered");

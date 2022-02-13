@@ -5,7 +5,7 @@
     <br>
     <div>Ordered letters (* for any)</div>
     <input type="text" id="ordered" value="t***s"></input>
-    <div>Unordered letters</div>
+    <div>Unordered letters (e.g. abc to find all words containing these letters in any position, *a*bc to find all words that contain a excluding first letter, and contain b c excluding second letter)</div>
     <input type="text" id="unordered" value="a"></input>
     <div>Excluded letters</div>
     <input type="text" id="excluded" value="rwg"></input>
@@ -44,7 +44,16 @@
             var word = words[i];
             var unorderedMatch = true;
             if (unordered.length > 0) {
+                var excludedIndex = -1;
                 for (var j = 0; j < unordered.length; j++) {
+                    if (unordered.charAt(j) == "*" ) {
+                        excludedIndex++;
+                        continue;
+                    }
+                    if (excludedIndex >=0 && word.charAt(excludedIndex) == unordered.charAt(j)) {
+                        unorderedMatch = false;
+                        break;
+                    }
                     if (word.indexOf(unordered.charAt(j)) == -1) {
                         unorderedMatch = false;
                         break;
